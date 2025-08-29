@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'inter': ['Inter', 'sans-serif'],
+				'poppins': ['Poppins', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -26,7 +30,8 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					glow: 'hsl(var(--primary-glow))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -43,6 +48,10 @@ export default {
 				accent: {
 					DEFAULT: 'hsl(var(--accent))',
 					foreground: 'hsl(var(--accent-foreground))'
+				},
+				success: {
+					DEFAULT: 'hsl(var(--success))',
+					foreground: 'hsl(var(--success-foreground))'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
@@ -63,12 +72,45 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				}
 			},
+			backgroundImage: {
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-card': 'var(--gradient-card)',
+				'gradient-chat': 'var(--gradient-chat)',
+			},
+			boxShadow: {
+				'soft': 'var(--shadow-soft)',
+				'glow': 'var(--shadow-glow)',
+				'chat': 'var(--shadow-chat)',
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			keyframes: {
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'typing': {
+					'0%, 50%, 100%': { opacity: '1' },
+					'25%, 75%': { opacity: '0.5' }
+				},
+				'fadeInUp': {
+					'from': {
+						opacity: '0',
+						transform: 'translateY(20px)'
+					},
+					'to': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'pulse-glow': {
+					'0%, 100%': { boxShadow: '0 0 20px hsl(var(--primary-glow) / 0.3)' },
+					'50%': { boxShadow: '0 0 40px hsl(var(--primary-glow) / 0.6)' }
+				},
 				'accordion-down': {
 					from: {
 						height: '0'
@@ -87,6 +129,10 @@ export default {
 				}
 			},
 			animation: {
+				'float': 'float 3s ease-in-out infinite',
+				'typing': 'typing 1.5s ease-in-out infinite',
+				'fade-in-up': 'fadeInUp 0.6s ease-out',
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
 			}
